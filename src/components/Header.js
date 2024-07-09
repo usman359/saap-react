@@ -67,7 +67,7 @@ const Header = () => {
             <input
               type="number"
               value={number === "primary" ? 6536 : 0}
-              className="rounded-sm ml-2 outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
+              className="rounded-sm ml-2 outline-none w-11/12 focus:bg-yellow-200 border border-gray-400"
             />
           </div>
         </div>
