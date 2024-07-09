@@ -23,7 +23,7 @@ const Footer = () => {
           />
         </div>
         {/* Label and textarea container */}
-        <div className="flex gap-2 items-center border-b">
+        <div className="flex gap-2 items-center border-b mb-6">
           <label className="w-[8rem]">Remarks</label>
           <textarea
             rows="4"
@@ -31,17 +31,24 @@ const Footer = () => {
           />
         </div>
         {/* Button container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-1/2 bg-red-600 text-white">Add & New</label>
-          <select
-            onChange={(e) => setNumber(e.target.value)}
-            value={number}
-            className="rounded-sm w-5 outline-none focus:bg-yellow-200 border border-gray-400"
-          >
-            <option value="add&new">Add & New</option>
-            <option value="add&view">Add & View</option>
-            <option value="close">Close</option>
-          </select>
+        <div className="flex gap-2 border-b">
+          <div className="relative flex items-center">
+            <div className="bg-yellow-200 px-2 border border-gray-400 flex items-center">
+              <select
+                onChange={(e) => setNumber(e.target.value)}
+                value={number}
+                className="rounded-sm bg-transparent border-none outline-none focus:bg-yellow-200 border border-gray-400"
+              >
+                <option value="add&new">Add & New</option>
+                <option value="add&view">Add & View</option>
+                <option value="close">Close</option>
+              </select>
+            </div>
+          </div>
+
+          <button className="bg-yellow-200 px-2 border border-gray-400">
+            Cancel
+          </button>
         </div>
       </div>
       {/* Box2 */}
