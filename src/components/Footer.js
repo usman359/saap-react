@@ -53,28 +53,32 @@ const Footer = () => {
       </div>
       {/* Box2 */}
       <div>
+        {/* Label and input container */}
+        <div className="flex gap-2 items-center border-b">
+          <label className="w-[8rem]">Total Before Discount</label>
+          <input
+            type="text"
+            className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
+          />
+        </div>
         {/* Label, select and input container */}
         <div className="flex items-center border-b">
-          <label className="w-[8rem]">No.</label>
-          <div className="flex items-center relative">
-            <select
-              onChange={(e) => setNumber(e.target.value)}
-              value={number}
-              className="rounded-sm absolute top-0 -left-[4.4rem] w-1/2 outline-none focus:bg-yellow-200 border border-gray-400"
-            >
-              <option value="primary">Primary</option>
-              <option value="manual">Manual</option>
-            </select>
+          <label className="w-[8rem]">Discount</label>
+          <div className="relative flex items-center">
             <input
               type="number"
-              value={number === "primary" ? 6536 : 0}
-              className="rounded-sm ml-2 outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
+              className="rounded-sm absolute top-0 -left-[3.1rem] w-1/3 outline-none focus:bg-yellow-200 border border-gray-400"
+            />
+            <span>%</span>
+            <input
+              type="text"
+              className="rounded-sm outline-none w-11/12 focus:bg-yellow-200 border border-gray-400"
             />
           </div>
         </div>
         {/* Label and input container */}
         <div className="flex gap-2 items-center border-b">
-          <label className="w-[8rem]">Status</label>
+          <label className="w-[8rem]">Freight</label>
           <input
             type="text"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
@@ -82,25 +86,27 @@ const Footer = () => {
         </div>
         {/* Label and input container */}
         <div className="flex gap-2 items-center border-b">
-          <label className="w-[8rem]">Posting Date</label>
+          <label className="w-[8rem]">Rounding</label>
           <input
-            type="date"
+            type="text"
+            value="PKR 0.0000"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
           />
         </div>
         {/* Label and input container */}
         <div className="flex gap-2 items-center border-b">
-          <label className="w-[8rem]">Delivery Date</label>
+          <label className="w-[8rem]">Tax</label>
           <input
-            type="date"
+            type="text"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
           />
         </div>
         {/* Label and input container */}
         <div className="flex gap-2 items-center border-b">
-          <label className="w-[8rem]">Document Date</label>
+          <label className="w-[8rem]">Total</label>
           <input
-            type="date"
+            type="text"
+            value="PKR 0.0000"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
           />
         </div>
