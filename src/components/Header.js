@@ -59,7 +59,7 @@ const Header = () => {
             <select
               onChange={(e) => setNumber(e.target.value)}
               value={number}
-              className="rounded-sm absolute top-0 -left-[4.4rem] w-1/2 outline-none focus:bg-yellow-200 border border-gray-400"
+              className="rounded-sm absolute top-0 -left-[4.1rem] w-1/2 outline-none focus:bg-yellow-200 border border-gray-400"
             >
               <option value="primary">Primary</option>
               <option value="manual">Manual</option>
@@ -67,7 +67,7 @@ const Header = () => {
             <input
               type="number"
               value={number === "primary" ? 6536 : 0}
-              className="rounded-sm ml-2 outline-none w-11/12 focus:bg-yellow-200 border border-gray-400"
+              className="rounded-sm ml-2 outline-none w-[94%] focus:bg-yellow-200 border border-gray-400"
             />
           </div>
         </div>
