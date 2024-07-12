@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Footer = () => {
   const [number, setNumber] = useState("primary");
   return (
-    <footer className="flex justify-between">
+    <footer className="flex justify-between px-4">
       {/* Box1 */}
       <div>
         {/* Label and input container */}

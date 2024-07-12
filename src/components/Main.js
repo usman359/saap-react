@@ -40,7 +40,7 @@ export default function Main() {
   };
 
   return (
-    <main className="h-72">
+    <main className="h-72 px-4">
       {/* Tab container */}
       <header className="grid grid-cols-4 cursor-pointer mb-4">
         <span
