@@ -4,9 +4,9 @@ const Header = () => {
   // States
   const [number, setNumber] = useState("primary");
   return (
-    <>
+    <div>
       {/* Sales name text */}
-      <h1 className="bg-gray-400 capitalize text-lg h-8">Sales Order</h1>
+      <h1 className="bg-gray-400 capitalize text-lg px-4 mb-2">Sales Order</h1>
 
       <header className="flex justify-between px-4">
         {/* Box1 */}
@@ -110,7 +110,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-    </>
+    </div>
   );
 };
 
