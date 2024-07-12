@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Header = () => {
+  // States
   const [number, setNumber] = useState("primary");
   return (
     <>
@@ -70,7 +71,7 @@ const Header = () => {
               </select>
               <input
                 type="number"
-                value={number === "primary" ? 6536 : 0}
+                defaultValue={number === "primary" ? 6536 : 0}
                 className="rounded-sm ml-2 outline-none w-[94%] focus:bg-yellow-200 border border-gray-400"
               />
             </div>

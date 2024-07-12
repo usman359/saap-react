@@ -89,7 +89,7 @@ const Footer = () => {
           <label className="w-[8rem]">Rounding</label>
           <input
             type="text"
-            value="PKR 0.0000"
+            defaultValue="PKR 0.0000"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
           />
         </div>
@@ -106,7 +106,7 @@ const Footer = () => {
           <label className="w-[8rem]">Total</label>
           <input
             type="text"
-            value="PKR 0.0000"
+            defaultValue="PKR 0.0000"
             className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
           />
         </div>
