@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
 
-const SalesOrder = () => {
+const Sales = () => {
   return (
     <div className="grid grid-cols-[200px_1fr]">
       {/* Sidebar component */}
@@ -24,4 +24,4 @@ const SalesOrder = () => {
   );
 };
 
-export default SalesOrder;
+export default Sales;
