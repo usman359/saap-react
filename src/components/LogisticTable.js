@@ -113,12 +113,12 @@ export default function LogisticTable() {
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2">
-            <input type="checkbox" checked />
+            <input type="checkbox" />
             <label>Approved</label>
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2 mb-4">
-            <input type="checkbox" checked />
+            <input type="checkbox" />
             <label>Allow Partial Delivery</label>
           </div>
 
