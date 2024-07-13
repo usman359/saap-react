@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import Nav2 from "./Nav2";
 
 const Header = () => {
   // States
   const [number, setNumber] = useState("primary");
   return (
     <div>
+      {/* Nav2 icons */}
+      <Nav2 />
+
       {/* Sales name text */}
-      <h1 className="bg-gray-400 capitalize text-lg px-4 mb-2">Sales Order</h1>
+      <h1 className="bg-gray-400 capitalize text-lg px-4 mb-1">Sales Order</h1>
 
       <header className="flex justify-between px-4">
         {/* Box1 */}
