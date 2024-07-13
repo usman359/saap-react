@@ -1,73 +1,25 @@
 import React from "react";
+import { icons } from "../data/nav2";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav2() {
-  const icons = [
-    { src: "/icons/preview.png", alt: "Preview", text: "Preview" },
-    { src: "/icons/printer.png", alt: "Print", text: "Print" },
-    { src: "/icons/sheet.png", alt: "Ms-Word", text: "MS-Word" },
-    { src: "/icons/google-docs.png", alt: "MS-Excel", text: "MS-Excel" },
-    { src: "/icons/pdf.png", alt: "Pdf", text: "Pdf" },
-    { src: "/icons/lock.png", alt: "Lock Screen", text: "Lock screen" },
-    { src: "/icons/search.png", alt: "Find", text: "Find" },
-    { src: "/icons/more.png", alt: "Add", text: "Add" },
-    {
-      src: "/icons/left-arrow.png",
-      alt: "First Data Record",
-      text: "First Data Record",
-    },
-    {
-      src: "/icons/previous.png",
-      alt: "Previous Record",
-      text: "Previous Record",
-    },
-    { src: "/icons/next.png", alt: "Next Record", text: "Next Record" },
-    {
-      src: "/icons/right-arrow.png",
-      alt: "Last Data Record",
-      text: "Last Data Record",
-    },
-    {
-      src: "/icons/reload.png",
-      alt: "Reload",
-      text: "Reload",
-    },
-    {
-      src: "/icons/base-document.png",
-      alt: "Base Document",
-      text: "Base Document",
-    },
-    {
-      src: "/icons/target-document.png",
-      alt: "Target Document",
-      text: "Target Document",
-    },
-    {
-      src: "/icons/income.png",
-      alt: "Income",
-      text: "Income",
-    },
-    {
-      src: "/icons/medical-history.png",
-      alt: "Form Settings",
-      text: "Form Settings",
-    },
-    {
-      src: "/icons/notification.png",
-      alt: "Message Alert",
-      text: "Message Alert",
-    },
-    {
-      src: "/icons/user.png",
-      alt: "Profile",
-      text: "Profile",
-    },
-  ];
+  // Navigates
+  const navigate = useNavigate();
+
+  // Handlers
+  const handleClick = (text) => {
+    if (text === "Form Settings") navigate("/form-settings");
+  };
 
   return (
     <div className="flex items-center gap-4 bg-gray-100 px-4 py-3">
       {/* Icons container */}
       {icons.map((icon, index) => (
-        <div key={index} className="relative group">
+        <div
+          key={index}
+          className="relative group"
+          onClick={() => handleClick(icon.text)}
+        >
           {/* Image */}
           <img
             src={icon.src}
