@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 export default function LogisticTable() {
   // Refs
@@ -8,18 +8,6 @@ export default function LogisticTable() {
   const [shipTo, setShipTo] = useState("hello1");
   const [billTo, setBillTo] = useState("hello2");
   const [showAddressBox, setShowAddressBox] = useState(false);
-
-  // Effects
-  // useEffect(() => {
-  //   const handleOutsideClick = (e) => {
-  //     if (e.target && !addressRef.current.contains(e.target))
-  //       setShowAddressBox(false);
-  //   };
-
-  //   handleOutsideClick();
-  //   window.addEventListener("click", handleOutsideClick);
-  //   return () => window.removeEventListener("click", handleOutsideClick);
-  // }, []);
 
   // Handlers
   const handleDotClick = () => {
@@ -125,12 +113,12 @@ export default function LogisticTable() {
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2">
-            <input type="checkbox" checked />
+            <input type="checkbox" />
             <label>Approved</label>
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2 mb-4">
-            <input type="checkbox" checked />
+            <input type="checkbox" />
             <label>Allow Partial Delivery</label>
           </div>
 
