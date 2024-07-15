@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { name } from "../data/nav1";
 
 export default function Nav1() {
   const [hoveredValue, setHoveredValue] = useState(null);
@@ -83,7 +82,7 @@ export default function Nav1() {
 
       <div
         onMouseOver={() => setHoveredValue("Edit")}
-        // onMouseOut={() => setHoveredValue(null)}
+        onMouseOut={() => setHoveredValue(null)}
       >
         {"Edit"}
 
@@ -169,7 +168,7 @@ export default function Nav1() {
 
       <div
         onMouseOver={() => setHoveredValue("View")}
-        // onMouseOut={() => setHoveredValue(null)}
+        onMouseOut={() => setHoveredValue(null)}
       >
         {"View"}
 
@@ -262,7 +261,7 @@ export default function Nav1() {
 
       <div
         onMouseOver={() => setHoveredValue("Data")}
-        // onMouseOut={() => setHoveredValue(null)}
+        onMouseOut={() => setHoveredValue(null)}
       >
         {"Data"}
 
@@ -375,7 +374,7 @@ export default function Nav1() {
                 <li className="px-4">Administration</li>
                 <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
                 {hoveredValue2 === "administration" && (
-                  <div className="-right-52 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                  <div className="-right-[13.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
                     <ul>
                       <li className="hover:bg-yellow-200 px-4">
                         Choose Company
@@ -436,10 +435,470 @@ export default function Nav1() {
                   </div>
                 )}
               </div>
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("crm")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">CRM</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "crm" && (
+                  <div className="-right-56 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Business Partner Master Data
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Activity</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Compaign Generation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Compaign</li>
+                      <li className="hover:bg-yellow-200 px-4">Opportunity</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Sales Quotation
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Sales Order</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("opportunities")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Opportunities</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "opportunities" && (
+                  <div className="-right-56 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">Opportunity</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("sales-a/r")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Sales - A/R</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "sales-a/r" && (
+                  <div className="-right-[15.7rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Sales Blanket Agreement
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Sales Quotation
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Sales Order</li>
+                      <li className="hover:bg-yellow-200 px-4">Delivery</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Return Request
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Return</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/R Down Payment Request
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/R Down Payment Invoice
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">A/R Invoice</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/R Invoice + Payment
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/R Credit Memo
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/R Reserve Invoice
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Generation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Recurring Transactions
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Recurring Transactions Templates
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4 pointer-events-none opacity-40">
+                        Available-to-Promise Check
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4 pointer-events-none opacity-40">
+                        Delivery Schedule Management
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Printing
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Dunning Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Gross Profit Recalculation Wizard
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("purchasing-a/p")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Purchasing - A/P</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "purchasing-a/p" && (
+                  <div className="-right-[17.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Purchase Blanket Agreement
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Purchase Request
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Purchase Quotation
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Purchase Order
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Goods Receipt PO
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Goods Return Request
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Goods Return</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/P Down Payment Request
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/P Down Payment Invoice
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">A/P Invoice</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/P Credit Memo
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        A/P Reserve Invoice
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Recurring Transactions
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Recurring Transaction Templates
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Landed Costs</li>
+                      <li className="hover:bg-yellow-200 px-4 pointer-events-none opacity-40">
+                        Procurement Confirmation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4 pointer-events-none opacity-40">
+                        Purchase Quotation Generation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Printing
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("business-partners")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Business Partners</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "business-partners" && (
+                  <div className="-right-56 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Business Partner Master Data
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Activity</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Compaign Generation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Compaign</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("banking")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Banking</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "banking" && (
+                  <div className="-right-[13.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Payment Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Check Number Confirmation
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Printing
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Payment Orders
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("inventory")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Inventory</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "inventory" && (
+                  <div className="-right-[9.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Item Master Data
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Bar Codes</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Printing
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("resources")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Resources</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "resources" && (
+                  <div className="-right-[13.4rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Resource Master Data
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Resource Capacity
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Set Daily Internal Capacities
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("production")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Production</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "production" && (
+                  <div className="-right-[17.3rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Bill of Materials
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Production Order
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Procurement Confirmation Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Receipt from Production
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Issue for Production
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Update Parent Item Prices Globally
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Production Cost Recalcualtion Wizard
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Bill of Materials Management
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("mrp")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">MRP</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "mrp" && (
+                  <div className="-right-[11.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">Forecasts</li>
+                      <li className="hover:bg-yellow-200 px-4">MRP Wizard</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Order Recommendation
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("service")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Service</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "service" && (
+                  <div className="-right-[12.6rem] absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">Service Call</li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Equipment Card
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Service Contract
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Solutions Knowledge Base
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Document Printing
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="flex justify-between items-center hover:bg-yellow-200 relative"
+                onMouseOver={() => setHoveredValue2("human-resources")}
+                onMouseOut={() => setHoveredValue2(null)}
+              >
+                <li className="px-4">Human Resources</li>
+                <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
+                {hoveredValue2 === "human-resources" && (
+                  <div className="-right-44 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                    <ul>
+                      <li className="hover:bg-yellow-200 px-4">
+                        Employee Master Data
+                      </li>
+                      <li className="hover:bg-yellow-200 px-4">Time Sheet</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </ul>
           </div>
         )}
       </div>
+
+      <div
+        onMouseOver={() => setHoveredValue("Tools")}
+        onMouseOut={() => setHoveredValue(null)}
+      >
+        {"Tools"}
+
+        {hoveredValue === "Tools" && (
+          <div className="absolute z-10 w-96 bg-white border border-gray-300 shadow-lg">
+            <ul>
+              <li className="hover:bg-yellow-200 px-4">Layout Designer</li>
+              <li className="hover:bg-yellow-200 px-4">
+                Scheduled Report Overview
+              </li>
+              <li className="px-4 hover:bg-yellow-200 pointer-events-none opacity-40">
+                Pervasive Analytics
+              </li>
+              <li className="px-4 hover:bg-yellow-200 pointer-events-none opacity-40">
+                Excel Report and Interactive Analysis Designer
+              </li>
+              <li className="hover:bg-yellow-200 px-4">
+                Preview External Crystal Reports File
+              </li>
+              <div className="flex justify-between hover:bg-yellow-200">
+                <li className="px-4">Form Settings...</li>
+                <span className="px-4">Ctrl+Shift+S</span>
+              </div>
+              <li className="hover:bg-yellow-200 px-4">Edit Form UI...</li>
+              <li className="hover:bg-yellow-200 px-4 opacity-40 pointer-events-none">
+                Change Log...
+              </li>
+              <div className="flex justify-between hover:bg-yellow-200 pointer-events-none opacity-40 border-b border-gray-200">
+                <li className="px-4">Search</li>
+                <span className="px-4">Ctrl+F1</span>
+              </div>
+              <div className="flex justify-between hover:bg-yellow-200 border-b border-gray-200">
+                <li className="px-4">User-Defined Values</li>
+                <span className="px-4">Shift+F2</span>
+              </div>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <div
+        onMouseOver={() => setHoveredValue("window")}
+        onMouseOut={() => setHoveredValue(null)}
+      >
+        {"Window"}
+
+        {hoveredValue === "window" && (
+          <div className="absolute z-10 w-64 bg-white border border-gray-300 shadow-lg">
+            <ul>
+              <li className="hover:bg-yellow-200 px-4">Cascade</li>
+              <li className="hover:bg-yellow-200 px-4">Close All</li>
+              <li className="hover:bg-yellow-200 px-4 border-b border-gray-200">
+                Close All But This
+              </li>
+              <div className="flex justify-between hover:bg-yellow-200">
+                <li className="px-4">Main Menu</li>
+                <span className="px-4">Ctrl+0</span>
+              </div>
+              <li className="hover:bg-yellow-200 px-4 opacity-40 pointer-events-none">
+                Show/Hide All Widgets
+              </li>
+              <li className="hover:bg-yellow-200 px-4 opacity-40 pointer-events-none border-b border-gray-200">
+                Auto Arrange All Widgets
+              </li>
+              <li className="hover:bg-yellow-200 px-4">
+                Messages/Alerts Overview
+              </li>
+              <li className="hover:bg-yellow-200 px-4">Calendar</li>
+              <li className="hover:bg-yellow-200 px-4">System Messages Log</li>
+              <li className="hover:bg-yellow-200 px-4 pointer-events-none opacity-40">
+                Select Default Branch
+              </li>
+              <li className="hover:bg-yellow-200 px-4 border-b border-gray-200">
+                My Personal Settings
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <div>Help</div>
     </div>
   );
 }
