@@ -1,0 +1,84 @@
+import { createContext, useContext, useEffect, useState } from "react";
+
+// List of items
+const initialItems = [
+  "#",
+  "Type",
+  "Item No.",
+  "BP Catalog No.",
+  "Item Description",
+  "Bar Code",
+  "Mfr No.",
+  "Serial No.",
+  "Factor 1",
+  "Factor 2",
+  "Factor 3",
+  "Factor 4",
+  "Quantity",
+  "Delivered Qty",
+  "Inventory UoM",
+  "No. of Packages",
+  "Unit Price",
+  "Discount %",
+  "Rate",
+  "Price After Discount",
+  "Tax Code",
+  "Gross Price after Disc.",
+  "Total (LC)",
+  "Whse",
+  "Del. Date",
+  "Sales Employee",
+  "Column. %",
+  "G/L Account",
+  "Project",
+  "Open Qty",
+  "In Stock",
+  "Committed",
+  "Ordered",
+  "Gross Profit Base Price",
+  "Gross Profit Total Base Price",
+  "BOM Type",
+  "Row Status",
+  "Target Type",
+  "Target Key",
+  "Base Type",
+  "Base Ref.",
+  "Base Key",
+];
+
+const TableContext = createContext();
+
+function TableProvider({ children }) {
+  // Stats
+  const [checkboxItems, setCheckboxItems] = useState([]);
+
+  // Handlers
+  const handleCheckboxChange = (index) => {
+    const newItems = [...checkboxItems];
+    newItems[index].checked = !newItems[index].checked;
+    setCheckboxItems(newItems);
+  };
+
+  // Effects
+  useEffect(() => {
+    const items = initialItems.map((item) => ({ label: item, checked: true }));
+    setCheckboxItems(items);
+  }, []);
+
+  return (
+    <TableContext.Provider
+      value={{ checkboxItems, setCheckboxItems, handleCheckboxChange }}
+    >
+      {children}
+    </TableContext.Provider>
+  );
+}
+
+function useTable() {
+  const context = useContext(TableContext);
+  if (context === undefined)
+    throw new Error("Context used outside of context provider");
+  return context;
+}
+
+export { TableProvider, useTable };
