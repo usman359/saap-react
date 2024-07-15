@@ -27,7 +27,7 @@ export default function Nav2() {
             className="w-4 h-4 cursor-pointer"
           />
           {/* Image hover icons */}
-          <div className="absolute text-center left-1/2 bottom-0 transform translate-y-full -translate-x-1/2 px-2 py-1 bg-white text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute text-center left-1/2 bottom-0 transform translate-y-full -translate-x-1/2 px-2 py-1 bg-white text-gray-600 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs whitespace-nowrap">
             {icon.text}
           </div>
         </div>
