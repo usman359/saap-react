@@ -14,7 +14,7 @@ const Sales = () => {
       {/* Second Nav */}
       <Nav2 />
 
-      <div className="bg-white h-screen text-xs flex flex-col justify-between">
+      <div className="bg-lime-100 h-screen text-xs flex flex-col justify-between">
         {/* Header */}
         <Header />
 

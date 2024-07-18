@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTable } from "../contexts/TableContext";
 
 export default function ContentTable() {
   // TableContext
   const { checkboxItems } = useTable();
-
-  useEffect(() => {
-    console.log(checkboxItems);
-  }, [checkboxItems]);
 
   return (
     <main className="overflow-x-scroll">
@@ -34,258 +30,31 @@ export default function ContentTable() {
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-gray-200">
-            {checkboxItems.map((item) => (
-              <th key={item} className="border border-gray-300 p-0.5">
-                {item.label}
-              </th>
-            ))}
+            {checkboxItems.map(
+              (item, index) =>
+                item.checked && (
+                  <th key={index} className="border border-gray-300 p-0.5">
+                    {item.label}
+                  </th>
+                )
+            )}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {checkboxItems.map((item) => (
-              <td
-                key={item}
-                className="border border-gray-300 bg-gray-200 p-0.5"
-              >
-                &nbsp;
-              </td>
-            ))}
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 bg-gray-200">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-            <td className="border border-gray-300 p-0.5">&nbsp;</td>
-          </tr>
+          {[...Array(10)].map((_, rowIndex) => (
+            <tr key={rowIndex}>
+              {checkboxItems.map((item, colIndex) => (
+                <td
+                  key={`${rowIndex}-${colIndex}`}
+                  className={`border border-gray-300 ${
+                    colIndex === 0 && "bg-gray-200"
+                  } p-0.5`}
+                >
+                  &nbsp;
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </main>

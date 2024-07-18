@@ -1,14 +1,21 @@
 import React from "react";
 import { icons } from "../data/nav2";
 import { useNavigate } from "react-router-dom";
+import { useTable } from "../contexts/TableContext";
 
 export default function Nav2() {
   // Navigates
   const navigate = useNavigate();
 
+  // TableContext
+  const { setIsFormOpen } = useTable();
+
   // Handlers
   const handleClick = (text) => {
-    if (text === "Form Settings") navigate("/form-settings");
+    if (text === "Form Settings") {
+      setIsFormOpen(true);
+      navigate("/form-settings");
+    }
   };
 
   return (

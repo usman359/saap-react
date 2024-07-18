@@ -51,6 +51,7 @@ const TableContext = createContext();
 function TableProvider({ children }) {
   // Stats
   const [checkboxItems, setCheckboxItems] = useState([]);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   // Handlers
   const handleCheckboxChange = (index) => {
@@ -65,9 +66,26 @@ function TableProvider({ children }) {
     setCheckboxItems(items);
   }, []);
 
+  useEffect(() => {
+    const storedItems = localStorage.getItem("items");
+    if (storedItems) setCheckboxItems(JSON.parse(storedItems));
+  }, []);
+
+  useEffect(() => {
+    if (checkboxItems.length > 0) {
+      localStorage.setItem("items", JSON.stringify(checkboxItems));
+    }
+  }, [checkboxItems]);
+
   return (
     <TableContext.Provider
-      value={{ checkboxItems, setCheckboxItems, handleCheckboxChange }}
+      value={{
+        checkboxItems,
+        setCheckboxItems,
+        handleCheckboxChange,
+        isFormOpen,
+        setIsFormOpen,
+      }}
     >
       {children}
     </TableContext.Provider>

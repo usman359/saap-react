@@ -2,13 +2,24 @@ import React, { useRef } from "react";
 import Nav1 from "../components/Nav1";
 import Nav2 from "../components/Nav2";
 import { useTable } from "../contexts/TableContext";
+import { useNavigate } from "react-router-dom";
 
 export default function FormSettings() {
+  // Navigates
+  const navigate = useNavigate();
+
   // Refs
   const formSettingsRef = useRef();
 
   // TableContext
-  const { checkboxItems, handleCheckboxChange } = useTable();
+  const { checkboxItems, handleCheckboxChange, isFormOpen, setIsFormOpen } =
+    useTable();
+
+  // Handlers
+  const handleNavigateToPage = () => {
+    setIsFormOpen(false);
+    navigate("/sales-order");
+  };
 
   return (
     <div>
@@ -18,8 +29,8 @@ export default function FormSettings() {
       {/* Second Nav */}
       <Nav2 />
 
-      {/* Form Settings */}
-      <div className="bg-gray-200 h-screen w-1/2">
+      {/* Form Settings container */}
+      {isFormOpen && (
         <div
           ref={formSettingsRef}
           className="bg-gray-100 h-full absolute top-0 left-0 w-full z-50 overflow-auto"
@@ -30,7 +41,7 @@ export default function FormSettings() {
             <header className="flex justify-between items-center mb-2">
               <span>Form Settings - Sales Order</span>
               <span
-                // onClick={() => setShowAddressBox(false)}
+                onClick={() => setIsFormOpen(false)}
                 className="bg-white h-4 w-4 flex items-center justify-center cursor-pointer"
               >
                 X
@@ -62,13 +73,13 @@ export default function FormSettings() {
               {/* Button container */}
               <div className="flex gap-2">
                 <button
-                  // onClick={() => setShowAddressBox(false)}
+                  onClick={handleNavigateToPage}
                   className="bg-yellow-200 px-2 border border-gray-400 w-20"
                 >
                   OK
                 </button>
                 <button
-                  // onClick={() => setShowAddressBox(false)}
+                  onClick={() => setIsFormOpen(false)}
                   className="bg-yellow-200 px-2 border border-gray-400 w-20"
                 >
                   Cancel
@@ -77,7 +88,7 @@ export default function FormSettings() {
             </main>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
