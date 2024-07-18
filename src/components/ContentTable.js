@@ -13,8 +13,8 @@ export default function ContentTable() {
         <div className="flex gap-4 border-b outline-none">
           <label className="w-[10rem]">Items/Service Type</label>
           <select className="w-1/2 border border-gray-200">
-            <option>Item1</option>
-            <option>Item2</option>
+            <option>Item</option>
+            <option>Service</option>
           </select>
         </div>
         {/* Label and select container */}
@@ -22,7 +22,7 @@ export default function ContentTable() {
           <label className="w-[10rem]">Summary Type</label>
           <select className="w-1/2 border border-gray-200">
             <option>No Summary</option>
-            <option>Item2</option>
+            <option>By Items</option>
           </select>
         </div>
       </header>

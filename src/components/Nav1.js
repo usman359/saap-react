@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav1() {
+  // Navigates
+  const navigate = useNavigate();
+
+  // States
   const [hoveredValue, setHoveredValue] = useState(null);
   const [hoveredValue2, setHoveredValue2] = useState(null);
 
@@ -471,7 +476,7 @@ export default function Nav1() {
                 <li className="px-4">Opportunities</li>
                 <img className="px-4 h-2" src="/icons/next.png" alt="Next" />
                 {hoveredValue2 === "opportunities" && (
-                  <div className="-right-56 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
+                  <div className="-right-28 absolute z-10 bg-white border border-gray-300 shadow-lg top-0">
                     <ul>
                       <li className="hover:bg-yellow-200 px-4">Opportunity</li>
                     </ul>
@@ -495,7 +500,12 @@ export default function Nav1() {
                       <li className="hover:bg-yellow-200 px-4">
                         Sales Quotation
                       </li>
-                      <li className="hover:bg-yellow-200 px-4">Sales Order</li>
+                      <li
+                        className="hover:bg-yellow-200 px-4"
+                        onClick={() => navigate("/sales-order")}
+                      >
+                        Sales Order
+                      </li>
                       <li className="hover:bg-yellow-200 px-4">Delivery</li>
                       <li className="hover:bg-yellow-200 px-4">
                         Return Request
