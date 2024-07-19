@@ -43,7 +43,7 @@ export default function MainMenu() {
       <Nav2 />
 
       {isMainMenuOpen && (
-        <div ref={mainMenuRef} className="relative">
+        <div ref={mainMenuRef} className="relative text-sm">
           {/* Center container */}
           <div className="absolute left-0 top-0 w-2/5 px-4 border border-gray-300 p-4">
             {/* Header */}

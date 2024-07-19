@@ -10,7 +10,7 @@ export default function Nav1() {
   const [hoveredValue2, setHoveredValue2] = useState(null);
 
   return (
-    <div className="flex items-center gap-4 bg-gray-400 bg-gradient-to-b from-gray-200 to-gray-400 px-4 text-sm py-1 border-b-4 border-yellow-500 relative">
+    <div className="flex items-center gap-4 bg-gray-400 bg-gradient-to-b from-gray-200 to-gray-400 px-4 text-sm py-1 border-b-4 border-yellow-500 relative cursor-default">
       <div
         onMouseOver={() => setHoveredValue("File")}
         onMouseOut={() => setHoveredValue(null)}
