@@ -47,16 +47,19 @@ export default function ContentTable() {
         <tbody>
           {[...Array(10)].map((_, rowIndex) => (
             <tr key={rowIndex}>
-              {checkboxItems.map((_, colIndex) => (
-                <td
-                  key={`${rowIndex}-${colIndex}`}
-                  className={`border border-gray-300 ${
-                    colIndex === 0 && "bg-gray-200"
-                  } p-0.5`}
-                >
-                  &nbsp;
-                </td>
-              ))}
+              {checkboxItems.map(
+                (item, colIndex) =>
+                  item.checked && (
+                    <td
+                      key={`${rowIndex}-${colIndex}`}
+                      className={`border border-gray-300 ${
+                        colIndex === 0 && "bg-gray-200"
+                      } p-0.5`}
+                    >
+                      &nbsp;
+                    </td>
+                  )
+              )}
             </tr>
           ))}
         </tbody>
