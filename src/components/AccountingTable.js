@@ -1,56 +1,49 @@
 import React, { useState } from "react";
+import FormInput from "./FormInput";
+import FormSelect from "./FormSelect";
 
 export default function AccountingTable() {
   // States
   const [paymentTerms, setPaymentTerms] = useState("");
   const [indicator, setIndicator] = useState("");
 
+  const paymentTermOptions = [
+    { value: "", label: "" },
+    { value: "cash-basic", label: "Cash Basic" },
+    { value: "define-new", label: "Define New" },
+  ];
+
+  const indictorOptions = [
+    { value: "", label: "" },
+    { value: "define-new", label: "Define New" },
+  ];
+
   return (
     <div className="flex justify-between">
       {/* Box 1 */}
       <div className="flex flex-col gap-1">
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b mb-8">
-          <label className="w-[9rem]">Journal Remark</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
+        <div className="mb-8">
+          <FormInput label="Jounal Remark" />
         </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">Payment Terms</label>
-          <select
-            onChange={(e) => setPaymentTerms(e.target.value)}
-            value={paymentTerms}
-            className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-          >
-            <option value=""></option>
-            <option value="cash-basic">Cash Basic</option>
-            <option value="define-new">Define New</option>
-          </select>
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">Payment Method</label>
-          <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b mb-4">
-          <label className="w-[9rem]">Central Bank Ind.</label>
-          <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
-        </div>
+
+        <FormSelect
+          label="Payment Terms"
+          onChange={(e) => setPaymentTerms(e.target.value)}
+          value={paymentTerms}
+          options={paymentTermOptions}
+        />
+
+        <FormSelect label="Payment Method" />
+
+        <FormSelect label="Central Bank Ind." />
+
         {/* Label and input/option container */}
         <div className="flex flex-col">
           {/* Text */}
           <label>Manually Recalculate Due Date:</label>
           {/* Option/input container */}
           <div className="flex">
-            <select
-              // onChange={(e) => setNumber(e.target.value)}
-              // value={number}
-              className="rounded-sm w-[7.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-            >
+            <select className="rounded-sm w-[7.5rem] outline-none focus:bg-yellow-200 border border-gray-400">
               <option value="primary">Local Currency</option>
               <option value="manual">Manual</option>
             </select>
@@ -74,66 +67,25 @@ export default function AccountingTable() {
 
       {/* Second box */}
       <div className="flex flex-col gap-1">
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">BP Project</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">Create QR Code From</label>
-          <input
-            type="text"
-            className="rounded-sm h-12 outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">Cancellation Date</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b mb-4">
-          <label className="w-[9rem]">Required Date</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b">
-          <label className="w-[9rem]">Indicator</label>
-          <select
-            onChange={(e) => setIndicator(e.target.value)}
-            value={indicator}
-            className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-          >
-            <option value=""></option>
-            <option value="define-new">Define New</option>
-          </select>
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b mb-4">
-          <label className="w-[9rem]">Federal Tax ID</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
-        {/* Label and input/option container */}
-        <div className="flex gap-2 items-center border-b mb-4">
-          <label className="w-[9rem]">Order Number</label>
-          <input
-            type="text"
-            className="rounded-sm outline-none focus:bg-yellow-200 border border-gray-400"
-          />
-        </div>
+        <FormInput label="BP Project" />
+
+        <FormInput label="Create QR Code From" />
+
+        <FormInput label="Cancellation Date" />
+
+        <FormInput label="Required Date" />
+
+        <FormSelect
+          label="Indicator"
+          onChange={(e) => setIndicator(e.target.value)}
+          value={indicator}
+          options={indictorOptions}
+        />
+
+        <FormInput label="Federal Tax ID" />
+
+        <FormInput label="Order Number" />
+
         {/* Label and input/option container */}
         <div className="flex gap-2 items-center border-b mb-4">
           <label className="w-[9rem]">Referred Document</label>
