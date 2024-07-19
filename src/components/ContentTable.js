@@ -3,7 +3,7 @@ import { useTable } from "../contexts/TableContext";
 
 export default function ContentTable() {
   // TableContext
-  const { checkboxItems } = useTable();
+  const { checkboxItems, type, setType } = useTable();
 
   return (
     <main className="overflow-x-scroll">
@@ -12,9 +12,13 @@ export default function ContentTable() {
         {/* Label and select container */}
         <div className="flex gap-4 border-b outline-none">
           <label className="w-[10rem]">Items/Service Type</label>
-          <select className="w-1/2 border border-gray-200">
-            <option>Item</option>
-            <option>Service</option>
+          <select
+            className="w-1/2 border border-gray-200"
+            onChange={(e) => setType(e.target.value)}
+            value={type}
+          >
+            <option value="item">Item</option>
+            <option value="service">Service</option>
           </select>
         </div>
         {/* Label and select container */}

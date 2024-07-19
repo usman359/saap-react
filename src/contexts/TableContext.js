@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+let newItems;
+
 // List of items
-const initialItems = [
+const item = [
   "#",
   "Type",
   "Item No.",
@@ -46,12 +48,56 @@ const initialItems = [
   "Base Key",
 ];
 
+const service = [
+  "#",
+  "Description",
+  "G/L Account",
+  "G/L Account Name",
+  "Tax Code",
+  "Total (LC)",
+  "Distr. Rule",
+  "Blanket Agreement No.",
+  "Category",
+  "Sub Category",
+  "Customer Group",
+  "Group",
+  "Territory",
+  "Sub Territory",
+  "Discount Percentage",
+  "WholeSalePercentage",
+  "SchemePercentage",
+  "Other Discount",
+  "WS Amount",
+  "Scheme Amount",
+  "Total Discount",
+  "MRP",
+  "Tax Type",
+  "Marketing Trade Budget",
+  "MTB Amount",
+  "3rd Schedule",
+  "Non 3rd",
+  "Gross Unit Price",
+  "Retail Price",
+  "Quantity in Cartons",
+  "Discount Amount",
+  "USCCode",
+  "CSDCode",
+  "MfgCode",
+  "Gross Total",
+  "CompanyRate",
+  "Difference",
+  "Carton",
+  "FED Tax",
+  "FED Rate",
+];
+
 const TableContext = createContext();
 
 function TableProvider({ children }) {
   // Stats
   const [checkboxItems, setCheckboxItems] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [type, setType] = useState("item");
 
   // Handlers
   const handleCheckboxChange = (index) => {
@@ -62,9 +108,12 @@ function TableProvider({ children }) {
 
   // Effects
   useEffect(() => {
-    const items = initialItems.map((item) => ({ label: item, checked: true }));
-    setCheckboxItems(items);
-  }, []);
+    if (type === "item")
+      newItems = item.map((item) => ({ label: item, checked: true }));
+    if (type === "service")
+      newItems = service.map((service) => ({ label: service, checked: true }));
+    setCheckboxItems(newItems);
+  }, [type]);
 
   useEffect(() => {
     const storedItems = localStorage.getItem("items");
@@ -85,6 +134,8 @@ function TableProvider({ children }) {
         handleCheckboxChange,
         isFormOpen,
         setIsFormOpen,
+        type,
+        setType,
       }}
     >
       {children}
