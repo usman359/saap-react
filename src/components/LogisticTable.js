@@ -1,15 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Address from "./Address";
 
 export default function LogisticTable() {
   // States
-  const [shipTo, setShipTo] = useState("hello1");
-  const [billTo, setBillTo] = useState("hello2");
+  const [shipType, setShipType] = useState("");
   const [showAddressBox, setShowAddressBox] = useState(false);
 
   // Handlers
   const handleDotClick = () => {
-    setShowAddressBox((show) => !show);
+    setShowAddressBox(true);
   };
 
   return (
@@ -22,14 +21,7 @@ export default function LogisticTable() {
             {/* Label and option box */}
             <div className="flex flex-col">
               <label>Ship To</label>
-              <select
-                onChange={(e) => setShipTo(e.target.value)}
-                value={shipTo}
-                className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-              >
-                <option value="primary">Local Currency</option>
-                <option value="manual">Manual</option>
-              </select>
+              <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
             </div>
             {/* Text area */}
             <textarea
@@ -51,14 +43,7 @@ export default function LogisticTable() {
             {/* Label and option box */}
             <div className="flex flex-col">
               <label>Bill To</label>
-              <select
-                onChange={(e) => setBillTo(e.target.value)}
-                value={billTo}
-                className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-              >
-                <option value="primary">Local Currency</option>
-                <option value="manual">Manual</option>
-              </select>
+              <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
             </div>
             {/* Text area */}
             <textarea
@@ -82,12 +67,17 @@ export default function LogisticTable() {
             <label>Shipping Text</label>
             {/* Select box */}
             <select
-              onChange={(e) => setShipTo(e.target.value)}
-              value={shipTo}
+              onChange={(e) => setShipType(e.target.value)}
+              value={shipType}
               className="absolute right-[2.1rem] rounded-sm ml-auto w-[9.3rem] outline-none focus:bg-yellow-200 border border-gray-400"
             >
-              <option value="primary">Local Currency</option>
-              <option value="manual">Manual</option>
+              <option value="primary"></option>
+              <option value="manual">AKA Own Tpt</option>
+              <option value="manual">CMA</option>
+              <option value="manual">FUG</option>
+              <option value="manual">RHK</option>
+              <option value="manual">SKB</option>
+              <option value="manual">Define New</option>
             </select>
           </div>
         </div>
@@ -106,17 +96,17 @@ export default function LogisticTable() {
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2">
-            <input type="checkbox" />
+            <input type="checkbox" checked />
             <label>Procure Non Drop-Ship Items</label>
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2">
-            <input type="checkbox" />
+            <input type="checkbox" checked />
             <label>Approved</label>
           </div>
           {/* Checkbox and text container */}
           <div className="flex items-center gap-2 mb-4">
-            <input type="checkbox" />
+            <input type="checkbox" checked />
             <label>Allow Partial Delivery</label>
           </div>
 
@@ -139,20 +129,13 @@ export default function LogisticTable() {
           {/* Label and input/option container */}
           <div className="flex gap-2 items-center border-b">
             <label className="w-[9rem]">BP Channel Contact</label>
-            <select
-              // onChange={(e) => setNumber(e.target.value)}
-              // value={number}
-              className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-            >
-              <option value="primary">Local Currency</option>
-              <option value="manual">Manual</option>
-            </select>
+            <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
           </div>
         </div>
       </div>
 
       {/* Address Box */}
-      {showAddressBox && <Address showAddressBox={showAddressBox} />}
+      {showAddressBox && <Address setShowAddressBox={setShowAddressBox} />}
     </>
   );
 }

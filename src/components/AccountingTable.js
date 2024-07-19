@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function AccountingTable() {
-  // const [shipTo, setShipTo] = useState("hello1");
-  // const [billTo, setBillTo] = useState("hello2");
+  // States
+  const [paymentTerms, setPaymentTerms] = useState("");
+  const [indicator, setIndicator] = useState("");
+
   return (
     <div className="flex justify-between">
       {/* Box 1 */}
@@ -19,37 +21,24 @@ export default function AccountingTable() {
         <div className="flex gap-2 items-center border-b">
           <label className="w-[9rem]">Payment Terms</label>
           <select
-            // onChange={(e) => setNumber(e.target.value)}
-            // value={number}
+            onChange={(e) => setPaymentTerms(e.target.value)}
+            value={paymentTerms}
             className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
           >
-            <option value="primary">Local Currency</option>
-            <option value="manual">Manual</option>
+            <option value=""></option>
+            <option value="cash-basic">Cash Basic</option>
+            <option value="define-new">Define New</option>
           </select>
         </div>
         {/* Label and input/option container */}
         <div className="flex gap-2 items-center border-b">
           <label className="w-[9rem]">Payment Method</label>
-          <select
-            // onChange={(e) => setNumber(e.target.value)}
-            // value={number}
-            className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-          >
-            <option value="primary">Local Currency</option>
-            <option value="manual">Manual</option>
-          </select>
+          <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
         </div>
         {/* Label and input/option container */}
         <div className="flex gap-2 items-center border-b mb-4">
           <label className="w-[9rem]">Central Bank Ind.</label>
-          <select
-            // onChange={(e) => setNumber(e.target.value)}
-            // value={number}
-            className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
-          >
-            <option value="primary">Local Currency</option>
-            <option value="manual">Manual</option>
-          </select>
+          <select className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"></select>
         </div>
         {/* Label and input/option container */}
         <div className="flex flex-col">
@@ -121,12 +110,12 @@ export default function AccountingTable() {
         <div className="flex gap-2 items-center border-b">
           <label className="w-[9rem]">Indicator</label>
           <select
-            // onChange={(e) => setNumber(e.target.value)}
-            // value={number}
+            onChange={(e) => setIndicator(e.target.value)}
+            value={indicator}
             className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
           >
-            <option value="primary">Local Currency</option>
-            <option value="manual">Manual</option>
+            <option value=""></option>
+            <option value="define-new">Define New</option>
           </select>
         </div>
         {/* Label and input/option container */}
