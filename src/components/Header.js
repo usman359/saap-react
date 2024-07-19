@@ -2,7 +2,20 @@ import React, { useState } from "react";
 
 const Header = () => {
   // States
-  const [number, setNumber] = useState("primary");
+  const [selectedOption, setSelectedOption] = useState("primary");
+  const [number, setNumber] = useState(6536); // Default number
+
+  const handleOptionChange = (e) => {
+    const value = e.target.value;
+    setSelectedOption(value);
+    setNumber(value === "manual" ? 0 : 6536); // Set number to 0 if "manual" is selected
+  };
+
+  // Handlers
+  const handleNumberChange = (e) => {
+    setNumber(e.target.value);
+  };
+
   return (
     <div>
       {/* Sales name text */}
@@ -48,12 +61,11 @@ const Header = () => {
           {/* Select container */}
           <div>
             <select
-              onChange={(e) => setNumber(e.target.value)}
+              // onChange={(e) => setNumber(e.target.value)}
               value={number}
               className="rounded-sm ml-auto w-[8.5rem] outline-none focus:bg-yellow-200 border border-gray-400"
             >
               <option value="primary">Local Currency</option>
-              <option value="manual">Manual</option>
             </select>
           </div>
         </div>
@@ -64,8 +76,8 @@ const Header = () => {
             <label className="w-[8rem]">No.</label>
             <div className="relative">
               <select
-                onChange={(e) => setNumber(e.target.value)}
-                value={number}
+                onChange={handleOptionChange}
+                value={selectedOption}
                 className="rounded-sm absolute top-0 -left-[4.1rem] w-1/2 outline-none focus:bg-yellow-200 border border-gray-400"
               >
                 <option value="primary">Primary</option>
@@ -73,7 +85,9 @@ const Header = () => {
               </select>
               <input
                 type="number"
-                defaultValue={number === "primary" ? 6536 : 0}
+                value={number}
+                disabled={selectedOption === "primary"}
+                onChange={handleNumberChange}
                 className="rounded-sm ml-2 outline-none w-[94%] focus:bg-yellow-200 border border-gray-400"
               />
             </div>
@@ -83,6 +97,8 @@ const Header = () => {
             <label className="w-[8rem]">Status</label>
             <input
               type="text"
+              value="Open"
+              disabled
               className="rounded-sm outline-none w-1/2 focus:bg-yellow-200 border border-gray-400"
             />
           </div>

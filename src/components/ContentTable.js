@@ -43,7 +43,7 @@ export default function ContentTable() {
         <tbody>
           {[...Array(10)].map((_, rowIndex) => (
             <tr key={rowIndex}>
-              {checkboxItems.map((item, colIndex) => (
+              {checkboxItems.map((_, colIndex) => (
                 <td
                   key={`${rowIndex}-${colIndex}`}
                   className={`border border-gray-300 ${
