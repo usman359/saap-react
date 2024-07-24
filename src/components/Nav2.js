@@ -8,7 +8,7 @@ export default function Nav2() {
   const navigate = useNavigate();
 
   // TableContext
-  const { setIsFormOpen, excelButtonRef } = useTable();
+  const { setIsFormOpen, excelButtonRef, printButtonRef } = useTable();
 
   // Handlers
   const handleClick = (text) => {
@@ -21,6 +21,12 @@ export default function Nav2() {
     if (text === "Form Settings") {
       setIsFormOpen(true);
       navigate("/form-settings");
+    }
+
+    if (text === "Print") {
+      if (printButtonRef && printButtonRef.current) {
+        printButtonRef.current.click();
+      }
     }
   };
 

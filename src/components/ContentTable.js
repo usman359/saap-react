@@ -1,11 +1,18 @@
 import React from "react";
 import { useTable } from "../contexts/TableContext";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import ReactToPrint from "react-to-print";
 
 export default function ContentTable() {
   // TableContext
-  const { checkboxItems, type, setType, contentTableRef, excelButtonRef } =
-    useTable();
+  const {
+    checkboxItems,
+    type,
+    setType,
+    contentTableRef,
+    excelButtonRef,
+    printButtonRef,
+  } = useTable();
 
   return (
     <main className="overflow-x-scroll">
@@ -42,6 +49,15 @@ export default function ContentTable() {
         buttonText="Download as XLS"
         ref={excelButtonRef}
       />
+      <ReactToPrint
+        trigger={() => (
+          <button ref={printButtonRef} className="hidden">
+            Print
+          </button>
+        )}
+        content={() => contentTableRef.current}
+      />
+      ;
       <table
         id="table-to-xls"
         ref={contentTableRef}
