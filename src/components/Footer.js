@@ -15,7 +15,7 @@ const Footer = () => {
           <select
             onChange={(e) => setEmployee(e.target.value)}
             value={employee}
-            className="rounded-sm w-[8.75rem] outline-none focus:bg-yellow-200 border border-gray-400"
+            className="rounded-sm w-[8.85rem] outline-none focus:bg-yellow-200 border border-gray-400"
           >
             <option value="no-sales-employee">No Sales Employee</option>
             <option value="shaban">Shaban</option>

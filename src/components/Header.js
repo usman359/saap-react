@@ -3,12 +3,12 @@ import React, { useState } from "react";
 const Header = () => {
   // States
   const [selectedOption, setSelectedOption] = useState("primary");
-  const [number, setNumber] = useState(6536); // Default number
+  const [number, setNumber] = useState(6536);
 
   const handleOptionChange = (e) => {
     const value = e.target.value;
     setSelectedOption(value);
-    setNumber(value === "manual" ? 0 : 6536); // Set number to 0 if "manual" is selected
+    setNumber(value === "manual" ? 0 : 6536);
   };
 
   // Handlers
