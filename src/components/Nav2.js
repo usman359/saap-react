@@ -8,10 +8,16 @@ export default function Nav2() {
   const navigate = useNavigate();
 
   // TableContext
-  const { setIsFormOpen } = useTable();
+  const { setIsFormOpen, excelButtonRef } = useTable();
 
   // Handlers
   const handleClick = (text) => {
+    if (text === "MS-Excel") {
+      if (excelButtonRef && excelButtonRef.current) {
+        excelButtonRef.current.handleDownload();
+      }
+    }
+
     if (text === "Form Settings") {
       setIsFormOpen(true);
       navigate("/form-settings");

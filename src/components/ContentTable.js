@@ -1,9 +1,11 @@
 import React from "react";
 import { useTable } from "../contexts/TableContext";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 export default function ContentTable() {
   // TableContext
-  const { checkboxItems, type, setType } = useTable();
+  const { checkboxItems, type, setType, contentTableRef, excelButtonRef } =
+    useTable();
 
   return (
     <main className="overflow-x-scroll">
@@ -31,7 +33,20 @@ export default function ContentTable() {
         </div>
       </header>
       {/* Main table content container */}
-      <table className="w-full border-collapse">
+      <ReactHTMLTableToExcel
+        id="test-table-xls-button"
+        className="hidden"
+        table="table-to-xls"
+        filename="test"
+        sheet="tablexls"
+        buttonText="Download as XLS"
+        ref={excelButtonRef}
+      />
+      <table
+        id="table-to-xls"
+        ref={contentTableRef}
+        className="w-full border-collapse"
+      >
         <thead>
           <tr className="bg-gray-200">
             {checkboxItems.map(
@@ -52,9 +67,9 @@ export default function ContentTable() {
                   item.checked && (
                     <td
                       key={`${rowIndex}-${colIndex}`}
-                      className={`border border-gray-300 ${
-                        colIndex === 0 && "bg-gray-200"
-                      } p-0.5`}
+                      className={`border border-gray-300 p-0.5 ${
+                        colIndex === 0 ? "bg-gray-200" : ""
+                      }`}
                     >
                       &nbsp;
                     </td>

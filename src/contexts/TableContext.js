@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 let newItems;
 
@@ -94,6 +94,10 @@ const service = [
 const TableContext = createContext();
 
 function TableProvider({ children }) {
+  // Refs
+  const contentTableRef = useRef(null);
+  const excelButtonRef = useRef(null);
+
   // Stats
   const [checkboxItems, setCheckboxItems] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -136,6 +140,8 @@ function TableProvider({ children }) {
         setIsFormOpen,
         type,
         setType,
+        contentTableRef,
+        excelButtonRef,
       }}
     >
       {children}
