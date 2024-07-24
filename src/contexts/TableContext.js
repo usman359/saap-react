@@ -98,6 +98,7 @@ function TableProvider({ children }) {
   const contentTableRef = useRef(null);
   const excelButtonRef = useRef(null);
   const printButtonRef = useRef(null);
+  const wordButtonRef = useRef(null);
 
   // Stats
   const [checkboxItems, setCheckboxItems] = useState([]);
@@ -144,6 +145,7 @@ function TableProvider({ children }) {
         contentTableRef,
         excelButtonRef,
         printButtonRef,
+        wordButtonRef,
       }}
     >
       {children}

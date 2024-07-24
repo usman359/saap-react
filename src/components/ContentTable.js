@@ -2,6 +2,7 @@ import React from "react";
 import { useTable } from "../contexts/TableContext";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import ReactToPrint from "react-to-print";
+import htmlDocx from "html-docx-js/dist/html-docx";
 
 export default function ContentTable() {
   // TableContext
@@ -12,7 +13,21 @@ export default function ContentTable() {
     contentTableRef,
     excelButtonRef,
     printButtonRef,
+    wordButtonRef,
   } = useTable();
+
+  // Handlers
+  const handleWordDownload = () => {
+    const tableElement = contentTableRef.current;
+    if (tableElement) {
+      const htmlContent = `<html><head><meta charset="utf-8"></head><body>${tableElement.outerHTML}</body></html>`;
+      const docxBlob = htmlDocx.asBlob(htmlContent);
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(docxBlob);
+      link.download = "table.docx";
+      link.click();
+    }
+  };
 
   return (
     <main className="overflow-x-scroll">
@@ -57,7 +72,14 @@ export default function ContentTable() {
         )}
         content={() => contentTableRef.current}
       />
-      ;
+      <button
+        className="hidden"
+        ref={wordButtonRef}
+        onClick={handleWordDownload}
+      >
+        Download as DOCX
+      </button>
+
       <table
         id="table-to-xls"
         ref={contentTableRef}
