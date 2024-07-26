@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable } from "../contexts/TableContext";
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
+// import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import ReactToPrint from "react-to-print";
 import htmlDocx from "html-docx-js/dist/html-docx";
 
@@ -11,7 +11,7 @@ export default function ContentTable() {
     type,
     setType,
     contentTableRef,
-    excelButtonRef,
+    // excelButtonRef,
     printButtonRef,
     wordButtonRef,
   } = useTable();
@@ -55,7 +55,7 @@ export default function ContentTable() {
         </div>
       </header>
       {/* Main table content container */}
-      <ReactHTMLTableToExcel
+      {/* <ReactHTMLTableToExcel
         id="test-table-xls-button"
         className="hidden"
         table="table-to-xls"
@@ -63,7 +63,7 @@ export default function ContentTable() {
         sheet="tablexls"
         buttonText="Download as XLS"
         ref={excelButtonRef}
-      />
+      /> */}
       <ReactToPrint
         trigger={() => (
           <button ref={printButtonRef} className="hidden">
