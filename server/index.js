@@ -7,6 +7,10 @@ app.get("/", (_, res) => {
   res.status(200).send("Hello from the server!");
 });
 
+app.get("/test", (_, res) => {
+  res.status(200).send("This is a test endpoint");
+});
+
 app.post("/shopify-webhook", (req, res) => {
   const data = req.body;
   res.status(200).json({ success: true, message: data });
