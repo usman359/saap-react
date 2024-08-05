@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DragAndRelateTable from "../components/DragAndRelateTable";
 import ModulesTable from "../components/ModulesTable";
 import MyMenu from "../components/MyMenu";
@@ -6,6 +6,16 @@ import Nav1 from "../components/Nav1";
 import Nav2 from "../components/Nav2";
 
 export default function MainMenu() {
+  // Effects
+  useEffect(() => {
+    async function sap() {
+      const res = await fetch("https://localhost:50000/b1s/v1/Orders");
+      const data = await res.json();
+      console.log(data);
+    }
+    sap();
+  }, []);
+
   // Refs
   const mainMenuRef = useRef();
 
