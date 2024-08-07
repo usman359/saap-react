@@ -6,24 +6,66 @@ import Nav1 from "../components/Nav1";
 import Nav2 from "../components/Nav2";
 
 export default function MainMenu() {
-  // Effects
-  useEffect(() => {
-    async function sap() {
-      const res = await fetch("https://localhost:50000/b1s/v1/Orders");
-      const data = await res.json();
-      console.log(data);
-    }
-    sap();
-  }, []);
-
-  // Refs
-  const mainMenuRef = useRef();
-
   // States
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
   const [modules, setModules] = useState(true);
   const [dragAndRelate, setDragAndRelate] = useState(false);
   const [myMenu, setMyMenu] = useState(false);
+  const [data, setData] = useState(null);
+
+  // Effects
+  useEffect(() => {
+    async function sapLogin() {
+      try {
+        const loginResponse = await fetch(
+          "http://localhost:3001/b1s/v1/Login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              CompanyDB: "AKA_Institution_Live",
+              Password: "Jupi@123",
+              UserName: "manager",
+            }),
+          }
+        );
+
+        if (loginResponse.ok) {
+          const loginData = await loginResponse.json();
+          const sessionId = loginData.SessionId;
+
+          // Fetch Orders using the session ID
+          const ordersResponse = await fetch(
+            "http://localhost:3001/b1s/v1/Orders",
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Cookie: `B1SESSION=${sessionId}`,
+              },
+            }
+          );
+
+          if (ordersResponse.ok) {
+            const ordersData = await ordersResponse.json();
+            setData(ordersData);
+          } else {
+            console.error("Failed to fetch orders");
+          }
+        } else {
+          console.error("Failed to log in");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+
+    sapLogin();
+  }, []);
+
+  // Refs
+  const mainMenuRef = useRef();
 
   // Handlers
   const handleClick = (val) => {
@@ -101,6 +143,16 @@ export default function MainMenu() {
           </div>
         </div>
       )}
+
+      {/* Display fetched data */}
+      <div>
+        <h2>Fetched Data:</h2>
+        {data ? (
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        ) : (
+          <p>No data fetched</p>
+        )}
+      </div>
     </>
   );
 }

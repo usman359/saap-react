@@ -12,38 +12,38 @@ export default function ModulesTable() {
   return (
     <div>
       {/* Module items */}
-      {modules.map((item, index) => (
-        <>
+      {modules.map((item) => (
+        <React.Fragment key={item.id}>
           <div
-            key={index}
             className="border-b border-gray-200 p-1 last:border-none bg-gray-100 cursor-pointer hover:bg-yellow-400"
             onClick={() => {
               if (item.subitems)
-                setOpenModule(openModule === index ? null : index);
+                setOpenModule(openModule === item.id ? null : item.id);
             }}
           >
             {item.label}
           </div>
 
-          {item.label && item.subitems && openModule === index && (
+          {item.label && item.subitems && openModule === item.id && (
             <div className="bg-gray-100">
               {/* Items */}
-              {item.subitems.map((subitem, subIndex) => (
+              {item.subitems.map((subitem) => (
                 <div
-                  key={subIndex}
+                  key={subitem.id}
                   className="border-b ml-12 border-gray-200 p-1 last:border-none cursor-pointer hover:bg-yellow-400"
                   onClick={() => {
-                    if (subitem === "Sales Order") navigate("/sales-order");
-                    if (subitem === "Purchase Order")
+                    if (subitem.label === "Sales Order")
+                      navigate("/sales-order");
+                    if (subitem.label === "Purchase Order")
                       navigate("/purchase-order");
                   }}
                 >
-                  {subitem}
+                  {subitem.label}
                 </div>
               ))}
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
